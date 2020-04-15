@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:title="Chats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/search"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_edit_text_normal"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:textColor="#585858"
+            android:textColorHint="#585858"
+            android:hint="@string/search"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+             />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".coursUdemy.MessageScreen">
+
+      <!--  <include
+            app:date="@{`Avril 20`}"
+            app:icon="@{`@drawable/ic_person_outline_black_24`}"
+            app:isNew="@{`android.view.View.VISIBLE`}"
+            app:isOnline="@{`android.view.View.GONE`}"
+            app:message="@{`Coucou mon bebe tu me manque trop..`}"
+            app:username="@{`Charlène`}"
+            layout="@layout/item_friend" />-->
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+        <include layout="@layout/item_friend"/>
+
+    </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>
