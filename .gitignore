@@ -12,3 +12,5 @@
 /captures
 .externalNativeBuild
 .cxx
+
+app/src/main/res/layout-v21/item_note.xml
