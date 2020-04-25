@@ -65,6 +65,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     // Pour la liaison de données
     kapt "com.android.databinding:compiler:3.1.0"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
 
 }
