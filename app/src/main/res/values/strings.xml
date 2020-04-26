@@ -3,4 +3,6 @@
     <string name="nouveau">NEW</string>
     <string name="search">Rechercher</string>
     <string name="text_body">Le lorem ipsum est, en imprimerie, une suite de mots sans pour autant que la signification de toute chose</string>
+    <string name="edit_title">TITRE</string>
+    <string name="body_text_edit">Description</string>
 </resources>
