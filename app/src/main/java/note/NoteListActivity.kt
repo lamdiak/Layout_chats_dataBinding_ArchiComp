@@ -14,13 +14,14 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var myAdapterNote: MyAdapterNote
     private lateinit var viewManager : RecyclerView.LayoutManager
-    private lateinit var note: MutableList<Note>
+    lateinit var note: MutableList<Note>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note_list)
 
         // My List
-        note = mutableListOf<Note>()
+        note = mutableListOf()
         note.add(Note("Ma première Note 1", "J'ai aimé une femme que j'aimerai.."))
         note.add(Note("Mon amour ", "Ceci n'est pas une déclaration non plus un aveux"))
 
@@ -44,9 +45,9 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showNoteDetail(noteIndex: Int) {
-        var note = note[noteIndex]
+        var notes = note[noteIndex]
         val intent = Intent(this, NoteDetailActivity::class.java)
-        intent.putExtra(NoteDetailActivity.EXTRA_NOTE,note)
+        intent.putExtra(NoteDetailActivity.EXTRA_NOTE,notes)
         intent.putExtra(NoteDetailActivity.EXTRA_NOTE_INDEX,noteIndex)
         startActivity(intent)
     }
