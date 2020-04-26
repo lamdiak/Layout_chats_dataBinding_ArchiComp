@@ -46,7 +46,7 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode != REQUEST_EDIT_NOTE && data==null){
+        if (resultCode != Activity.RESULT_OK || data==null){
            return
        }
         when(requestCode){
@@ -55,15 +55,15 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun processEditNoteResult(data: Intent?) {
-        val noteIndex = intent.getIntExtra(EXTRA_NOTE_INDEX, -1)
-        val notes = intent.getParcelableExtra<Note>(EXTRA_NOTE)
+    private fun processEditNoteResult(data: Intent) {
+        val noteIndex = data.getIntExtra(EXTRA_NOTE_INDEX, -1)
+        val notes = data.getParcelableExtra<Note>(EXTRA_NOTE)
         saveNote(notes,noteIndex)
     }
 
     override fun onClick(v: View) {
         if (v.tag!=null){
-            Toast.makeText(this, "${v.tag}", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this, "${v.tag}", Toast.LENGTH_SHORT).show()
             showNoteDetail(v.tag as Int)
         }
     }
