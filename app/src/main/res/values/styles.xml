@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="text_style_menu">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">@font/regular</item>
+    </style>
+
 </resources>
