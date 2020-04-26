@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="note.NoteDetailActivity">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_title"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:inputType="text"
+        android:fontFamily="@font/amarante"
+        android:textColorHint="@drawable/ic_mode_edit_black_24dp"
+        android:background="@android:color/transparent"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/body_text"
+        android:layout_below="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="text"
+        android:hint="@string/body_text_edit"
+        android:gravity="start"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:fontFamily="@font/aref_ruqaa"
+        android:textColorHint="@drawable/around_circle"
+        android:background="@android:color/transparent"
+        />
+
+</RelativeLayout>
