@@ -22,4 +22,17 @@
         android:scrollbars="vertical"
         android:layout_below="@+id/toolbar"
         tools:listitem="@layout/item_note" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:elevation="10dp"
+        android:layout_margin="16dp"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+
 </RelativeLayout>
