@@ -19,8 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".coursUdemy.MessageScreen"></activity>
+        <activity android:name=".coursUdemy.MessageScreen" />
         <activity android:name=".coursUdemy.MainActivity" />
+        <activity android:name="note.NoteDetailActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName="note.NoteListActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="note.NoteListActivity"/>
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
