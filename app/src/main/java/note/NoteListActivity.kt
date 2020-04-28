@@ -5,11 +5,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import archcomps.traning.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import note.NoteDetailActivity.Companion.DELETE_NOTE
+import note.NoteDetailActivity.Companion.EDIT_NOTE
 import note.NoteDetailActivity.Companion.EXTRA_NOTE
 import note.NoteDetailActivity.Companion.EXTRA_NOTE_INDEX
 import note.NoteDetailActivity.Companion.REQUEST_EDIT_NOTE
@@ -28,6 +30,9 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
         // Toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        // FAB
+        findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener(this)
 
         // My List
         note = mutableListOf()
@@ -58,24 +63,51 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
     private fun processEditNoteResult(data: Intent) {
         val noteIndex = data.getIntExtra(EXTRA_NOTE_INDEX, -1)
         val notes = data.getParcelableExtra<Note>(EXTRA_NOTE)
-        saveNote(notes,noteIndex)
+        when(data.action) {
+            EDIT_NOTE -> {
+                saveNote(notes,noteIndex)
+            }
+             DELETE_NOTE -> {
+                 deleteNoteDetail(noteIndex)
+             }
+        }
+    }
+
+    private fun deleteNoteDetail(noteIndex: Int) {
+        if(noteIndex <0 ){
+            return
+        }
+        val notes= note.removeAt(noteIndex)
+        myAdapterNote.notifyDataSetChanged()
     }
 
     override fun onClick(v: View) {
         if (v.tag!=null){
            // Toast.makeText(this, "${v.tag}", Toast.LENGTH_SHORT).show()
             showNoteDetail(v.tag as Int)
+        }else {
+            when(v.id){
+                R.id.floatingActionButton -> createNewNote()
+            }
         }
     }
 
-
     private fun saveNote(notes: Note, noteIndex: Int) {
-        note[noteIndex] = notes
+        if (noteIndex < 0){
+            note.add(0, notes)
+        } else {
+            note[noteIndex] = notes
+        }
         myAdapterNote.notifyDataSetChanged()
     }
 
+    private fun createNewNote() {
+        showNoteDetail(-1)
+    }
+
+
     private fun showNoteDetail(noteIndex: Int) {
-        var notes = note[noteIndex]
+        var notes = if(noteIndex < 0) Note() else note[noteIndex]
         val intent = Intent(this, NoteDetailActivity::class.java)
         intent.putExtra(EXTRA_NOTE,notes)
         intent.putExtra(EXTRA_NOTE_INDEX,noteIndex)
